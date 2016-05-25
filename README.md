@@ -17,6 +17,15 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
      ```bash
      sed -i "s/export uid=1000 gid=1000/export uid=X$UID gid=X${GROUPS[0]}/" Dockerfile
      ```
+     You might want to change these values evertime you check out the file from git
+     and revert the replacement before you checkin the changed Dockerfile.
+     Run the following on your host to make that possible:
+     ```bash
+     git config filter.uidfix.smudge "s/export uid=1000 gid=1000/export uid=X$UID gid=X${GROUPS[0]}/"
+     git config filter.uidfix.clean "s/export uid=X$UID gid=X${GROUPS[0]}/export uid=1000 gid=1000/"
+     ```
+     ( thanks to [Eron Wright](https://github.com/docker/docker/issues/7198#issuecomment-200964423) for this hint! )
+
 1.   build the dockerized IntelliJ image:
      ```bash
      docker build -t elasticjava/idea:v1 .
