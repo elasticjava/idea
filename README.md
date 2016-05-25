@@ -45,6 +45,8 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
      docker run -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/usr/local/src --net=host idea
      ```
 
+****
+
 ##     have happy ideas!
     
     
