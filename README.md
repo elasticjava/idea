@@ -12,6 +12,7 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
 ## Kickstart with Docker
 
 1.   [install docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
+
 1.   if you have another [UID](https://en.wikipedia.org/wiki/User_identifier)/[GID](https://en.wikipedia.org/wiki/Group_identifier) than `1000` please change the [Dockerfile](Dockerfile) and replace "export uid=1000 gid=1000" with your user / group id inside the Dockerfile. You might run the following script for that task:
      ```bash
      sed -i "s/export uid=1000 gid=1000/export uid=X$UID gid=X${GROUPS[0]}/" Dockerfile
