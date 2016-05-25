@@ -15,7 +15,7 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
      ```bash
      sed -i "s/export uid=1000 gid=1000/export uid=$UID gid=${GROUPS[0]}/" Dockerfile
      ```
-     You might want to change these values evertime you check out the file from git
+     You might want to change these values everytime you check out the file from git
      and revert the replacement before you checkin the changed Dockerfile.
      Run the following on your host (and adjust the file ```.gitattributes``` if you change the name ```uidfix```) 
      to make that possible:
