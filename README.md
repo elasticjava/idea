@@ -7,7 +7,7 @@ dockerized [IntelliJ Idea Community Edition](https://www.jetbrains.com/idea/)
 ## Kickstart your DevOps Java workplace with Docker
 
 kickstart your dev environment with a sharable workplace inside a docker container  
-and the always latest [IntelliJ Idea Community Edition](https://www.jetbrains.com/idea/) and [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+containing the always latest [IntelliJ Idea Community Edition](https://www.jetbrains.com/idea/) and [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 1.   [install docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/)
 
