@@ -24,8 +24,7 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
      git config filter.uidfix.smudge "s/export uid=1000 gid=1000/export uid=X$UID gid=X${GROUPS[0]}/"
      git config filter.uidfix.clean "s/export uid=X$UID gid=X${GROUPS[0]}/export uid=1000 gid=1000/"
      ```
-     ( thanks to [Eron Wright](https://github.com/docker/docker/issues/7198#issuecomment-200964423) for this hint! )
-
+     
 1.   build the dockerized IntelliJ image:
      ```bash
      docker build -t elasticjava/idea:v1 .
