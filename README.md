@@ -18,7 +18,7 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
      ```
      before interacting with this  Dockerfile
 
-1.   Build image with:
+1.   build image with:
      ```bash
      docker build -t elasticjava/idea:v1 .
      ```
