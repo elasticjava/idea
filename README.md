@@ -19,7 +19,8 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
      ```
      You might want to change these values evertime you check out the file from git
      and revert the replacement before you checkin the changed Dockerfile.
-     Run the following on your host to make that possible:
+     Run the following on your host (and adjust the file ```.gitattributes``` if you change the name ```uidfix```) 
+     to make that possible:
      ```bash
      git config filter.uidfix.smudge "s/export uid=1000 gid=1000/export uid=X$UID gid=X${GROUPS[0]}/"
      git config filter.uidfix.clean "s/export uid=X$UID gid=X${GROUPS[0]}/export uid=1000 gid=1000/"
