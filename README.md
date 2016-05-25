@@ -27,12 +27,12 @@ please change the [Dockerfile](Dockerfile) or run
      docker build -t elasticjava/idea:v1 .
      ```
     
-1.   Idea needs a few configuration step initially
+1.   Idea needs a few configuration steps initially
        so first start docker via
      ```bash
         docker run -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $PWD:/usr/local/src --net=host elasticjava/idea:v1
      ```
-1.   and configure IntelliJ your favourite way, install plugins etc. and quit the running Idea. Then conserve the running      container as image with
+1.   configure IntelliJ your favourite way, install plugins etc. and quit the running Idea. Then conserve the running      container as image with
      ```bash
         docker commit $(docker ps -a -f ancestor=elasticjava/idea:v1 -n=1 -q) idea
      ```
