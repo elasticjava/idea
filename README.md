@@ -15,15 +15,15 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
 
 1.   if you have another [UID](https://en.wikipedia.org/wiki/User_identifier)/[GID](https://en.wikipedia.org/wiki/Group_identifier) than `1000` please change the [Dockerfile](Dockerfile) and replace "export uid=1000 gid=1000" with your user / group id inside the Dockerfile. You might run the following script for that task:
      ```bash
-     sed -i "s/export uid=1000 gid=1000/export uid=X$UID gid=X${GROUPS[0]}/" Dockerfile
+     sed -i "s/export uid=1000 gid=1000/export uid=$UID gid=${GROUPS[0]}/" Dockerfile
      ```
      You might want to change these values evertime you check out the file from git
      and revert the replacement before you checkin the changed Dockerfile.
      Run the following on your host (and adjust the file ```.gitattributes``` if you change the name ```uidfix```) 
      to make that possible:
      ```bash
-     git config filter.uidfix.smudge "s/export uid=1000 gid=1000/export uid=X$UID gid=X${GROUPS[0]}/"
-     git config filter.uidfix.clean "s/export uid=X$UID gid=X${GROUPS[0]}/export uid=1000 gid=1000/"
+     git config filter.uidfix.smudge "s/export uid=1000 gid=1000/export uid=$UID gid=${GROUPS[0]}/"
+     git config filter.uidfix.clean "s/export uid=$UID gid=${GROUPS[0]}/export uid=1000 gid=1000/"
      ```
      
 1.   build the dockerized IntelliJ image:
