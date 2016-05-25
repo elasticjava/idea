@@ -20,8 +20,8 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
      Run the following on your host (and adjust the file ```.gitattributes``` if you change the name ```uidfix```) 
      to make that possible:
      ```bash
-     git config filter.uidfix.smudge "sed s/export uid=1000 gid=1000/export uid=$UID gid=${GROUPS[0]}/"
-     git config filter.uidfix.clean "sed s/export uid=$UID gid=${GROUPS[0]}/export uid=1000 gid=1000/"
+     git config filter.uidfix.smudge "sed \"s/export uid=1000 gid=1000/export uid=$UID gid=${GROUPS[0]}/\""
+     git config filter.uidfix.clean "sed \"s/export uid=$UID gid=${GROUPS[0]}/export uid=1000 gid=1000/\""
      ```
      
 1.   build the dockerized IntelliJ Idea image:
