@@ -35,7 +35,7 @@ containing the latest [IntelliJ Idea Community Edition](https://www.jetbrains.co
      ```
      and configure IntelliJ your favourite way, install plugins and define codestyles.
      
-1.   quit the running Idea and conserve the last image state as new image without popup screens:
+1.   quit the running Idea and conserve the last image state as new image without noise:
      ```bash
      docker commit $(docker ps -a -f ancestor=elasticjava/idea:v1 -n=1 -q) idea
      ```
