@@ -23,7 +23,6 @@ MAINTAINER Holger Bartnick, https://github.com/elasticjava
 # installing latest Oracle Java 8
 # and setting default $JAVA_HOME variables
 RUN apt-get update && \
-    apt-get upgrade -y && \
     apt-get install -y  software-properties-common && \
     add-apt-repository ppa:webupd8team/java -y && \
     apt-get update && \
