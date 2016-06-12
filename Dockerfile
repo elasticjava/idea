@@ -35,7 +35,8 @@ RUN apt-get update && \
 # install used tools like curl and git sudo and standard dev tools like git
 RUN apt-get update && \
     apt-get install -y sudo curl jq git wget tar unzip mercurial cvs && \
-    apt-get clean
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists
 
 # install GUI relevant libs
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula \
@@ -46,7 +47,8 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula \
     libx11-6 libxext-dev libxrender-dev libxtst-dev ttf-dejavu fonts-dejavu-core libfontconfig1 \
     xauth ttf-kochi-gothic ttf-kochi-mincho  ttf-mscorefonts-installer libgtk2.0 \
     ttf-indic-fonts ttf-dejavu-core fonts-thai-tlwg ubuntu-restricted-extras && \
-    apt-get clean
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists
 
 RUN ln -s /etc/fonts/conf.avail/69-language-selector-ja-jp.conf /etc/fonts/conf.d/
 #
@@ -102,7 +104,8 @@ RUN export uid=1000 gid=1000 && \
 # shrink the docker image
 RUN apt-get -y autoremove && \
     apt-get -y clean && \
-    rm -r /var/cache/
+    rm -r /var/cache/ && \
+    rm -rf /var/lib/apt/lists
 
 VOLUME ["/usr/local/src"]
 WORKDIR /usr/local/src
