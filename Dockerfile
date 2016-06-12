@@ -41,7 +41,6 @@ RUN apt-get update && \
 # install GUI relevant libs
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula \
         select true | debconf-set-selections && \
-    apt-get update && \
     add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) multiverse" && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -96,7 +95,7 @@ RUN set -x && \
 # adding the modified idea64.vmoptions
 ADD idea64.vmoptions /usr/local/share/idea/idea-current/bin/idea64.vmoptions
 
-# cleaning the caches
+# prepare the virtual src folder
 RUN export uid=1000 gid=1000 && \
     mkdir -p /usr/local/src && \
     chown ${uid}:${gid} -R /usr/local/src
@@ -107,7 +106,6 @@ RUN apt-get -y autoremove && \
     rm -r /var/cache/
 
 VOLUME ["/usr/local/src"]
-
 WORKDIR /usr/local/src
 
 USER developer
