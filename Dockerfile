@@ -23,18 +23,30 @@ MAINTAINER Holger Bartnick, https://github.com/elasticjava
 # installing latest Oracle Java 8
 # and setting default $JAVA_HOME variables
 RUN apt-get update && \
-    apt-get install -y  software-properties-common && \
+    apt-get install -y software-properties-common && \
     add-apt-repository ppa:webupd8team/java -y && \
     apt-get update && \
     echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-    apt-get install -y --force-yes oracle-java8-installer oracle-java8-set-default oracle-java8-unlimited-jce-policy && \
+    apt-get install -y --force-yes \
+                    oracle-java8-installer \
+                    oracle-java8-set-default \
+                    oracle-java8-unlimited-jce-policy && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists && \
     rm -r /var/cache/oracle-jdk8-installer
 
 # install used tools like curl and git sudo and standard dev tools like git
 RUN apt-get update && \
-    apt-get install -y sudo curl jq git wget tar unzip mercurial cvs && \
+    apt-get install -y \
+                    sudo \
+                    curl \
+                    jq \
+                    git \
+                    wget \
+                    tar \
+                    unzip \
+                    mercurial \
+                    cvs && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
@@ -44,9 +56,22 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula \
     add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) multiverse" && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-    libx11-6 libxext-dev libxrender-dev libxtst-dev ttf-dejavu fonts-dejavu-core libfontconfig1 \
-    xauth ttf-kochi-gothic ttf-kochi-mincho  ttf-mscorefonts-installer libgtk2.0 \
-    ttf-indic-fonts ttf-dejavu-core fonts-thai-tlwg ubuntu-restricted-extras && \
+                    libx11-6 \
+                    libxext-dev \
+                    libxrender-dev \
+                    libxtst-dev \
+                    ttf-dejavu \
+                    fonts-dejavu-core \
+                    libfontconfig1 \
+                    xauth \
+                    ttf-kochi-gothic \
+                    ttf-kochi-mincho \
+                    ttf-mscorefonts-installer \
+                    libgtk2.0 \
+                    ttf-indic-fonts \
+                    ttf-dejavu-core \
+                    fonts-thai-tlwg \
+                    ubuntu-restricted-extras && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
